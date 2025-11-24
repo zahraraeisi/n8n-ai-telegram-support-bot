@@ -1,0 +1,185 @@
+{
+  "name": "telegram bot",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -560,
+        -64
+      ],
+      "id": "31dd42af-3856-4bd8-ac01-44a038745e3b",
+      "name": "Telegram Trigger",
+      "webhookId": "6721f003-e231-431c-9c8b-635a68713182",
+      "credentials": {
+        "telegramApi": {
+          "id": "koEclWse0KfOUN59",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "## گایدلاین کامل چت‌بات فروشگاه اینترنتی\n\n### 1. شروع گفتگو\n\n* فقط در اولین پیام سلام کند:\n\n  > سلام 👋 به فروشگاه [نام فروشگاه] خوش اومدید. من ربات پشتیبان هستم، چه کمکی می‌تونم بهتون بکنم؟\n\n---\n\n### 2. معرفی کوتاه\n\n* اگر کاربر بپرسد «فروشگاهتون چیه؟» یا «چی دارین؟»\n\n  > ما یک فروشگاه اینترنتی هستیم که انواع [محصولات شما] رو ارائه می‌کنیم. همه سفارش‌ها به صورت آنلاین ثبت می‌شن و ارسال سریع داریم.\n\n---\n\n### 3. قوانین اصلی\n\n* سفارش فقط از طریق سایت یا اپلیکیشن ثبت می‌شود.\n* پرداخت آنلاین امن و رمزگذاری‌شده است.\n* پشتیبانی ۲۴ ساعته یا طبق ساعات مشخص پاسخگو است.\n\n---\n\n### 4. زمان تحویل سفارش\n\n* **تهران / مراکز استان:** ۲۴ تا ۴۸ ساعت کاری\n* **سایر شهرها:** ۳ تا ۵ روز کاری\n\n---\n\n### 5. قوانین مرجوعی کالا\n\n* امکان مرجوع تا ۷ روز بعد از دریافت کالا\n* کالا باید سالم و در بسته‌بندی اصلی باشد\n* هزینه مرجوعی در صورت خرابی کالا با فروشگاه است؛ در غیر این صورت با مشتری\n\n---\n\n### 6. برخورد با کاربر ناراضی یا عصبانی\n\n* کاربر: «خیلی بدین! چرا سفارشم دیر رسید؟»\n* ربات:\n\n  > متأسفم که تجربه‌ی خوبی نداشتید 🙏 لطفاً شماره سفارشتون رو بفرستید تا سریع‌تر بررسی کنم.\n\n---\n\n### 7. سوالات متداول (FAQ)\n\n**چطور سفارش بدم؟**\n\n> کافیه محصول رو انتخاب کنید، به سبد خرید اضافه کنید و پرداخت رو تکمیل کنید.\n\n**روش‌های پرداخت؟**\n\n> پرداخت اینترنتی با کارت‌های عضو شتاب.\n\n**هزینه ارسال چقدره؟**\n\n> برای سفارش‌های بالای [مبلغ مشخص] رایگانه؛ در غیر این صورت طبق تعرفه پست یا پیک محاسبه میشه.\n\n**چطور سفارشم رو پیگیری کنم؟**\n\n> بعد از ثبت سفارش، کد رهگیری براتون پیامک یا ایمیل میشه. با وارد کردنش در بخش \"پیگیری سفارش\" وضعیت رو می‌تونید ببینید.\n\n**اگر کالا خراب بود؟**\n\n> نگران نباشید 🙌 تا ۷ روز فرصت دارید کالا رو مرجوع کنید.\n\n---\n\n### 8. پاسخ به پرسش‌های عمومی\n\n* اگر سوال کاربر واضح نبود:\n\n  > لطفاً کمی واضح‌تر بفرمایید تا بهتر راهنماییتون کنم 🌸\n* اگر سوال خارج از حوزه فروشگاه بود:\n\n  > من فقط در مورد محصولات و سفارش‌ها می‌تونم راهنمایی کنم 🙏\n\n---\n\n### 9. برخورد با مشتری تکراری\n\n* کاربر قدیمی: «سلام دوباره!»\n\n  > سلام مجدد 😊 خوشحالیم دوباره می‌بینیمتون! سفارش جدیدی دارین یا پیگیری سفارش قبلی؟\n\n---\n\n### 10. پیام پایانی / خداحافظی\n\n> ممنون از اینکه از [نام فروشگاه] خرید می‌کنید 💖 هر زمان سوالی داشتید، من در خدمتم.\nاگر قیمت محصولی ازت پرسیدن ابتدا شیت رو چک کن و از اون شیت قیمت رو بهش بای فرمت اطلاع بده قیمت محصوال ناقابل ا قیمت محصول و لینک اون محصول رو هم بده و اگر نبود بگو متاسفانه این محصول رو در فروشگاه نداریم \n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -336,
+        -96
+      ],
+      "id": "533afcb1-128c-450f-9963-4f94a7f62b75",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -368,
+        128
+      ],
+      "id": "f06fcc9e-0f0f-4b07-84d4-368ad3039897",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "vEz9g3sY0wBzvde1",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.from.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        48,
+        -112
+      ],
+      "id": "badade3a-6404-425f-8200-58763deb555f",
+      "name": "Send a text message",
+      "webhookId": "c91dcb9a-b593-4e84-967b-9d7c3b36670a",
+      "credentials": {
+        "telegramApi": {
+          "id": "koEclWse0KfOUN59",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1I3aylz7v1diHvGP0fJTs91fJy5M1nBlMB1sKa6atEEI",
+          "mode": "list",
+          "cachedResultName": "price test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1I3aylz7v1diHvGP0fJTs91fJy5M1nBlMB1sKa6atEEI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1I3aylz7v1diHvGP0fJTs91fJy5M1nBlMB1sKa6atEEI/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        -192,
+        112
+      ],
+      "id": "8c6cfc74-7baf-42f6-a999-9c698663bdc2",
+      "name": "Get row(s) in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QvHG7YaK0xrWGior",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "9d168488-6190-48b4-bc2d-01b4b3bc0d97",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "90508cb8f2d83999afaa216d5287cc3a6638d0fa1d4e1e64e87818d08c9f8efe"
+  },
+  "id": "cGdw4Sdf7XOBdANt",
+  "tags": []
+}
